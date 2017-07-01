@@ -1,2 +1,20 @@
 Yeey my first git project
 Awesome
+
+#add group
+groupadd www-pub
+
+#add user to group
+usermod -a -G www-pub mark
+
+#make the group own all /var/www files
+chown -R :www-pub /var/www
+
+#Add capability to everyone to read and read
+chmod -R o+r /var/www
+
+#Allow capability for reading
+chmod -R g+w /var/www
+
+#Make the files executable
+find /var/www -type d -exec chmod g+s {} \;
